@@ -1,0 +1,31 @@
+[
+    {
+        "username": "xXMyUserNameXx",
+        "skills": [
+            {
+                "name": "attack",
+                "level": "32",
+                "xp": 128561
+            },
+            {
+                "name": "defence",
+                "level": "44",
+                "xp": 12404
+            },
+            {
+                "name": "strength",
+                "level": "76",
+                "xp": 1336787
+            },
+            {
+                "name": "hitpoint",
+                "level": "38",
+                "xp": 42936
+            }
+        ],
+        "currentSkill": "attack",
+        "goalXP": 129561,
+        "currentXP": 128861,
+        "startedXP": 128361
+    }
+]
