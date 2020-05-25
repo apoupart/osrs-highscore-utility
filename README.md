@@ -15,3 +15,7 @@ You will also see any lint errors in the console.
 ### `npm run server`
 
 Runs the NodeJS with Express server. It allow the React App to make a call to the API.
+
+### Requirement
+
+The project was made with NodeJS at version `13.7.0`.
