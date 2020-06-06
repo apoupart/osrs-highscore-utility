@@ -43,19 +43,25 @@ class UserInteraction {
         return skillArray;
     }
 
-    getSelectedSkill(currentSkill: string, skillList: Array<IUserSkills>): Array<IUserSkills> {
+    getSelectedSkillFromList(currentSkill: string, skillList: Array<IUserSkills>): Array<IUserSkills> {
         const filteredSkillList: Array<IUserSkills> = skillList.filter((skill: IUserSkills) => {
             return skill.name === currentSkill;
         });
         return filteredSkillList;
     }
-    getXPFromCurrentSkill(): number {
+
+    getSelectedSkill() {
         const state = store.getState();
         const currentSkill: string = state.currentSkill;
         const skillList: Array<IUserSkills> = state.skills;
-        const filteredSkillList = this.getSelectedSkill(currentSkill, skillList);
+        const filteredSkillList = this.getSelectedSkillFromList(currentSkill, skillList);
 
-        const currentXP: number = (filteredSkillList.length && filteredSkillList[0].xp) || 0;
+        return filteredSkillList[0] || [];
+    }
+
+    getXPFromCurrentSkill(): number {
+        const filteredSkillList = this.getSelectedSkill();
+        const currentXP: number = filteredSkillList.xp || 0;
         this.setCurrentXPFromCurrentSkill(currentXP);
 
         return currentXP;
@@ -75,7 +81,7 @@ class UserInteraction {
     setSkill(skill: string) {
         const state = store.getState();
         const skillList: Array<IUserSkills> = state.skills;
-        const filteredSkillList: Array<IUserSkills> = this.getSelectedSkill(skill, skillList);
+        const filteredSkillList: Array<IUserSkills> = this.getSelectedSkillFromList(skill, skillList);
 
         if (filteredSkillList.length) {
             const currentXP: number = filteredSkillList[0].xp || 0;
@@ -90,6 +96,22 @@ class UserInteraction {
             }
             store.dispatch(addNewObjective(objective));
         }
+    }
+
+    getGainedXPSinceStart(): number {
+        const state = store.getState();
+        const { currentXP, startedXP } = state;
+        const differenceBetweenStartAndCurrent: number = (currentXP || 0) - startedXP;
+        
+        return differenceBetweenStartAndCurrent;
+    }
+
+    getXPDifferenceBetweenStartAndEnd(): number {
+        const state = store.getState();
+        const { goalXP, startedXP } = state;
+        const differenceBetweenStartAndEnd: number = goalXP - startedXP;
+        
+        return differenceBetweenStartAndEnd;
     }
 }
 

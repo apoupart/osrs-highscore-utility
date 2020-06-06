@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AccountProgression from './account-progression';
+import ProgressionCard from './progression-card';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<AccountProgression />, div);
+  ReactDOM.render(<ProgressionCard />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

@@ -2,7 +2,9 @@ import React from 'react';
 import './account-hub.scss';
 import UserInteraction from '../../services/user-interaction';
 import { IUserData }from '../../interface/i-user';
-import AccountProgression from '../user-account/account-progression';
+import ProgressionBar from '../progression-bar/progression-bar';
+import SkillsList from '../skills-list/skills-list';
+import ProgressionCard from '../progression-card/progression-card';
 
 interface IProps {
   user: IUserData;
@@ -17,7 +19,7 @@ class AccountHub extends React.Component<IProps, IState> {
     super(props);
 
     this.state = {
-      name: 'xXMyUserNameXx',
+      name: 'Zezima',
     };
     this.getCurrentXP = this.getCurrentXP.bind(this)
   }
@@ -27,15 +29,16 @@ class AccountHub extends React.Component<IProps, IState> {
   }
 
   render() {
+    const skillList: Array<string> = UserInteraction.getSkillListName();
+    const selectObjectiveComponent = 
+      skillList.map((val: string, index: number) => {
+        return <SkillsList key={index} skill={val} />;
+      });
+    
+    const hasObjectiveComponent = <ProgressionCard {...this.props} />;
     return (
       <div className="account-hub">
-        <AccountProgression
-          username={this.props.user.username}
-          currentSkill={this.props.user.currentSkill}
-          goalXP={this.props.user.goalXP}
-          currentXP={this.props.user.currentXP || this.getCurrentXP()}
-          startedXP={this.props.user.startedXP}
-        />
+        {this.props.user.currentSkill ? hasObjectiveComponent : selectObjectiveComponent}
       </div>
     );
   }
