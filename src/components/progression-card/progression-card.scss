@@ -6,8 +6,8 @@
   border-radius: 10px;
   padding: 20px;
   &__image-wrapper {
-    width: 25%;
-    padding-bottom: 25%;
+    width: 20%;
+    padding-bottom: 20%;
     background: red;
     position: relative;
     overflow: hidden;
@@ -21,7 +21,10 @@
     box-sizing: border-box;
     max-width: 100%;
   }
+  &__details-summary {
+    width: 40%;
+  }
   &__details-wrapper {
-    width: 75%;
+    width: 40%;
   }
 }

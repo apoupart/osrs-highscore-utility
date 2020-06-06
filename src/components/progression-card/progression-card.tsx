@@ -49,6 +49,9 @@ class ProgressionCard extends React.Component<IProps, IState> {
             lazyLoading={true}
           ></Image>
         </div>
+
+        <div className="progression-card__details-summary">
+        </div>
         <div className="progression-card__details-wrapper">
           <h3 aria-label="Your">Current task</h3>
           <p>{currentXPGain} / {totalXPToGain} <b>{currentSkill}</b></p>
