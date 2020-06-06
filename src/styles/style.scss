@@ -1,0 +1,11 @@
+@import '_colors';
+@import '_fonts';
+
+:root { font-size: 62.5% }
+body {
+    color: $darkTextColor;
+    font-family: $roboto;
+    * {
+        box-sizing: border-box;
+    }
+}

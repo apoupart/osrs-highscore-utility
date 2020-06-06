@@ -3,8 +3,8 @@
   display: flex;
   flex-wrap: wrap;
   background-color: #F9F3EB;
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 1rem;
+  padding: 2rem;
   &__image-wrapper {
     width: 20%;
     padding-bottom: 20%;
@@ -17,7 +17,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 40px;
+    padding: 4rem;
     box-sizing: border-box;
     max-width: 100%;
   }
