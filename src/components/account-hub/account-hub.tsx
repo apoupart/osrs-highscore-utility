@@ -2,7 +2,6 @@ import React from 'react';
 import './account-hub.scss';
 import UserInteraction from '../../services/user-interaction';
 import { IUserData }from '../../interface/i-user';
-import ProgressionBar from '../progression-bar/progression-bar';
 import SkillsList from '../skills-list/skills-list';
 import ProgressionCard from '../progression-card/progression-card';
 
